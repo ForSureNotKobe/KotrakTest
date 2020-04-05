@@ -34,11 +34,11 @@ namespace KotrakTest
             }
         }
 
+        // Należy sprawdzić poprawność bindingu w kolejnej metodzie
+
         private void FormMain_Load(object sender, EventArgs e)
         {
-            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'testContractorsDataSet.Contractors' . Możesz go przenieść lub usunąć.
             this.contractorsTableAdapter.Fill(this.testContractorsDataSet.Contractors);
-
         }
 
         private void buttonAddNew_Click(object sender, EventArgs e)
@@ -64,6 +64,8 @@ namespace KotrakTest
             }
             FormMain_Load(sender, e);
         }
+
+        // Należy sprawdzić poprawność bindingu w kolejnej metodzie
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {

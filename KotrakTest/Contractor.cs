@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+
 
 namespace KotrakTest
 {
@@ -68,6 +70,7 @@ namespace KotrakTest
                     return con;
                 }
             }
+            MessageBox.Show("Brak ID kontrahenta! Błąd bazy danych!");
             return new Contractor();
         }
 
