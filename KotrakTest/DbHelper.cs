@@ -10,8 +10,10 @@ namespace KotrakTest
 {
     class DbHelper
     {
+        // Należy zmienić poniższy string aby zawierał w sobie aktualną ścieżkę do bazy danych
+
         private static string _defaultConnectionString = @"Data Source=DESKTOP-15SVUOL\SQLEXPRESS; 
-                        Initial Catalog=KotrakDB; Integrated Security=True";
+                        Initial Catalog=TestContractors; Integrated Security=True";
 
         private static string _defaultUpdateString = "UPDATE Contractors SET name = @name," +
                 " code = @code, nip = @nip, phone = @phone, email = @email " +
@@ -57,28 +59,34 @@ namespace KotrakTest
             SqlConnection sqlConnect = new SqlConnection(defaultConnectionString);
 
             SqlCommand cmd = new SqlCommand(defaultUpdateString, sqlConnect);
-
-            try
+            if (Contractor.CheckIfDataIsUnique(name, code, nip, ID))
             {
-                sqlConnect.Open();
+                try
+                {
+                    sqlConnect.Open();
 
-                cmd.Parameters.AddWithValue("@ID", ID);
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@code", code);
-                cmd.Parameters.AddWithValue("@nip", nip);
-                cmd.Parameters.AddWithValue("@phone", phone);
-                cmd.Parameters.AddWithValue("@email", email);
+                    cmd.Parameters.AddWithValue("@ID", ID);
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@code", code);
+                    cmd.Parameters.AddWithValue("@nip", nip);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    cmd.Parameters.AddWithValue("@email", email);
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Wprowadzono niepoprawne dane!");
+                }
+                finally
+                {
+                    sqlConnect.Close();
+                }
             }
-
-            catch (SqlException ex)
+            else
             {
-                MessageBox.Show("Wprowadzono niepoprawne dane!");
-            }
-            finally
-            {
-                sqlConnect.Close();
+                MessageBox.Show("Istnieje już kontrahent o podanych danych!");
             }
         }
 
@@ -89,26 +97,33 @@ namespace KotrakTest
 
             SqlCommand cmd = new SqlCommand(defaultInsertString, sqlConnect);
 
-            try
+            if (Contractor.CheckIfDataIsUnique(name, code, nip))
             {
-                sqlConnect.Open();
-                cmd.Parameters.AddWithValue("@name", name);
-                cmd.Parameters.AddWithValue("@code", code);
-                cmd.Parameters.AddWithValue("@nip", nip);
-                cmd.Parameters.AddWithValue("@phone", phone);
-                cmd.Parameters.AddWithValue("@email", email);
+                try
+                {
+                    sqlConnect.Open();
+                    cmd.Parameters.AddWithValue("@name", name);
+                    cmd.Parameters.AddWithValue("@code", code);
+                    cmd.Parameters.AddWithValue("@nip", nip);
+                    cmd.Parameters.AddWithValue("@phone", phone);
+                    cmd.Parameters.AddWithValue("@email", email);
 
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
+                }
+
+                catch (SqlException ex)
+                {
+                    MessageBox.Show("Wprowadzono niepoprawne dane!");
+                }
+
+                finally
+                {
+                    sqlConnect.Close();
+                }
             }
-
-            catch (SqlException ex)
+            else
             {
-                MessageBox.Show("Wprowadzono niepoprawne dane!");
-            }
-
-            finally
-            {
-                sqlConnect.Close();
+                MessageBox.Show("Istnieje już kontrahent o podanych danych!");
             }
         }
 

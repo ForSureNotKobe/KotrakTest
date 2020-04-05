@@ -18,19 +18,27 @@ namespace KotrakTest
             InitializeComponent();
         }
 
-        private void buttonConnect_Click_1(object sender, EventArgs e)
+        private void buttonTest_Click(object sender, EventArgs e)
         {
+            try
+            {
                 SqlConnection sqlConnect = new SqlConnection(DbHelper.defaultConnectionString);
-
                 sqlConnect.Open();
-                MessageBox.Show("Connected!");
-
+                MessageBox.Show("Baza jest połączona!");
                 sqlConnect.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex);
+                MessageBox.Show("Baza nie jest połączona!");
+            }
         }
 
         private void FormMain_Load(object sender, EventArgs e)
-        {            
-            this.contractorsTableAdapter.Fill(this.kotrakDBDataSet.Contractors);
+        {
+            // TODO: Ten wiersz kodu wczytuje dane do tabeli 'testContractorsDataSet.Contractors' . Możesz go przenieść lub usunąć.
+            this.contractorsTableAdapter.Fill(this.testContractorsDataSet.Contractors);
+
         }
 
         private void buttonAddNew_Click(object sender, EventArgs e)
@@ -59,7 +67,7 @@ namespace KotrakTest
 
         private void textBoxSearch_TextChanged(object sender, EventArgs e)
         {
-            KotrakDBDataSet.ContractorsDataTable kotrakDT = this.kotrakDBDataSet.Contractors;
+            TestContractorsDataSet.ContractorsDataTable kotrakDT = this.testContractorsDataSet.Contractors;
             contractorsBindingSource.DataSource = kotrakDT;
 
             contractorsBindingSource.Filter =

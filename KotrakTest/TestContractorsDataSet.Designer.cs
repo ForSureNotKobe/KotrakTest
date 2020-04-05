@@ -20,9 +20,9 @@ namespace KotrakTest {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("KotrakDBDataSet")]
+    [global::System.Xml.Serialization.XmlRootAttribute("TestContractorsDataSet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class KotrakDBDataSet : global::System.Data.DataSet {
+    public partial class TestContractorsDataSet : global::System.Data.DataSet {
         
         private ContractorsDataTable tableContractors;
         
@@ -30,7 +30,7 @@ namespace KotrakTest {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public KotrakDBDataSet() {
+        public TestContractorsDataSet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace KotrakTest {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected KotrakDBDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected TestContractorsDataSet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -127,7 +127,7 @@ namespace KotrakTest {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            KotrakDBDataSet cln = ((KotrakDBDataSet)(base.Clone()));
+            TestContractorsDataSet cln = ((TestContractorsDataSet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -199,9 +199,9 @@ namespace KotrakTest {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "KotrakDBDataSet";
+            this.DataSetName = "TestContractorsDataSet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/KotrakDBDataSet.xsd";
+            this.Namespace = "http://tempuri.org/TestContractorsDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableContractors = new ContractorsDataTable();
@@ -225,7 +225,7 @@ namespace KotrakTest {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            KotrakDBDataSet ds = new KotrakDBDataSet();
+            TestContractorsDataSet ds = new TestContractorsDataSet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -553,7 +553,7 @@ namespace KotrakTest {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                KotrakDBDataSet ds = new KotrakDBDataSet();
+                TestContractorsDataSet ds = new TestContractorsDataSet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -762,7 +762,7 @@ namespace KotrakTest {
         }
     }
 }
-namespace KotrakTest.KotrakDBDataSetTableAdapters {
+namespace KotrakTest.TestContractorsDataSetTableAdapters {
     
     
     /// <summary>
@@ -941,7 +941,7 @@ SELECT contractor_id, code, name, nip, phone, email FROM Contractors WHERE (cont
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KotrakTest.Properties.Settings.Default.KotrakDBConnectionString;
+            this._connection.ConnectionString = global::KotrakTest.Properties.Settings.Default.TestContractorsConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -958,7 +958,7 @@ SELECT contractor_id, code, name, nip, phone, email FROM Contractors WHERE (cont
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(KotrakDBDataSet.ContractorsDataTable dataTable) {
+        public virtual int Fill(TestContractorsDataSet.ContractorsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -971,9 +971,9 @@ SELECT contractor_id, code, name, nip, phone, email FROM Contractors WHERE (cont
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual KotrakDBDataSet.ContractorsDataTable GetData() {
+        public virtual TestContractorsDataSet.ContractorsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            KotrakDBDataSet.ContractorsDataTable dataTable = new KotrakDBDataSet.ContractorsDataTable();
+            TestContractorsDataSet.ContractorsDataTable dataTable = new TestContractorsDataSet.ContractorsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -981,14 +981,14 @@ SELECT contractor_id, code, name, nip, phone, email FROM Contractors WHERE (cont
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(KotrakDBDataSet.ContractorsDataTable dataTable) {
+        public virtual int Update(TestContractorsDataSet.ContractorsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(KotrakDBDataSet dataSet) {
+        public virtual int Update(TestContractorsDataSet dataSet) {
             return this.Adapter.Update(dataSet, "Contractors");
         }
         
@@ -1301,7 +1301,7 @@ SELECT contractor_id, code, name, nip, phone, email FROM Contractors WHERE (cont
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateUpdatedRows(KotrakDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(TestContractorsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._contractorsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.Contractors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -1320,7 +1320,7 @@ SELECT contractor_id, code, name, nip, phone, email FROM Contractors WHERE (cont
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateInsertedRows(KotrakDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(TestContractorsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._contractorsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.Contractors.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -1338,7 +1338,7 @@ SELECT contractor_id, code, name, nip, phone, email FROM Contractors WHERE (cont
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private int UpdateDeletedRows(KotrakDBDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(TestContractorsDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._contractorsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.Contractors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -1380,7 +1380,7 @@ SELECT contractor_id, code, name, nip, phone, email FROM Contractors WHERE (cont
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public virtual int UpdateAll(KotrakDBDataSet dataSet) {
+        public virtual int UpdateAll(TestContractorsDataSet dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

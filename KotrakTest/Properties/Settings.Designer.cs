@@ -33,5 +33,16 @@ namespace KotrakTest.Properties {
                 return ((string)(this["KotrakDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-15SVUOL\\SQLEXPRESS;Initial Catalog=TestContractors;Integrated" +
+            " Security=True")]
+        public string TestContractorsConnectionString {
+            get {
+                return ((string)(this["TestContractorsConnectionString"]));
+            }
+        }
     }
 }

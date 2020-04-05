@@ -70,5 +70,33 @@ namespace KotrakTest
             }
             return new Contractor();
         }
+
+        public static bool CheckIfDataIsUnique (string checkName, string checkCode, string checkNip)
+        {
+            Contractor contractor = new Contractor();
+            List<Contractor> listOfContractors = contractor.GetContractors();
+            foreach (Contractor con in listOfContractors)
+            {
+                if (checkName == con.Name || checkCode == con.Code || checkNip == con.Nip)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public static bool CheckIfDataIsUnique(string checkName, string checkCode, string checkNip, int checkID)
+        {
+            Contractor contractor = new Contractor();
+            List<Contractor> listOfContractors = contractor.GetContractors();
+            foreach (Contractor con in listOfContractors)
+            {
+                if ((checkName == con.Name || checkCode == con.Code || checkNip == con.Nip) && 
+                    checkID != con.ID)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
