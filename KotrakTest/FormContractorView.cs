@@ -11,16 +11,16 @@ using System.Windows.Forms;
 
 namespace KotrakTest
 {
-    public partial class Form2 : Form
+    public partial class FormContractorView : Form
     {
         public int ContractorID;
-        public Form2(int ConID)
+        public FormContractorView(int conID)
         {
-            ContractorID = ConID;
+            ContractorID = conID;
             InitializeComponent();
 
             Contractor contractor = new Contractor();
-            contractor = contractor.GetContractorData(Convert.ToInt32(ConID),
+            contractor = contractor.GetContractorData(conID,
                 contractor.GetContractors());
 
             this.textBoxName.Text = contractor.Name;

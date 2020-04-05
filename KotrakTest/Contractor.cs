@@ -9,13 +9,6 @@ namespace KotrakTest
 {
     class Contractor
     {
-        private int id;
-        private string code;
-        private string name;
-        private string nip;
-        private string phone;
-        private string email;
-
         public int ID { get; set; }
         public string Code { get; set; }
         public string Name { get; set; }
@@ -37,7 +30,7 @@ namespace KotrakTest
 
         public List<Contractor> GetContractors()
         {
-            SqlConnection sqlConnect = new SqlConnection(DbHelper.DefaultConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(DbHelper.defaultConnectionString);
             sqlConnect.Open();
 
             SqlCommand command;
@@ -48,7 +41,7 @@ namespace KotrakTest
             command = new SqlCommand(sql, sqlConnect);
             dataReader = command.ExecuteReader();
 
-            List<Contractor> listOfContractors = new List<Contractor> { };
+            List<Contractor> listOfContractors = new List<Contractor>();
 
             while (dataReader.Read())
             {
@@ -68,7 +61,6 @@ namespace KotrakTest
 
         public Contractor GetContractorData(int ConID, List<Contractor> contractors)
         {
-            Contractor fake = new Contractor();
             foreach (Contractor con in contractors)
             {
                 if (con.ID == ConID)
@@ -76,10 +68,7 @@ namespace KotrakTest
                     return con;
                 }
             }
-            return fake;
+            return new Contractor();
         }
     }
-
-
-}
 }

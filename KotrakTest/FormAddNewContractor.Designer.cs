@@ -1,6 +1,6 @@
 ﻿namespace KotrakTest
 {
-    partial class Form3
+    partial class FormAddNewContractor
     {
         /// <summary>
         /// Required designer variable.

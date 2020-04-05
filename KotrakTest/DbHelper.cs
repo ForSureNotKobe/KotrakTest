@@ -10,54 +10,53 @@ namespace KotrakTest
 {
     class DbHelper
     {
-        private static string defaultConnectionString = @"Data Source=DESKTOP-15SVUOL\SQLEXPRESS; 
-                        Initial Catalog=KotrakDB; Integrated Security=True";        
+        private static string _defaultConnectionString = @"Data Source=DESKTOP-15SVUOL\SQLEXPRESS; 
+                        Initial Catalog=KotrakDB; Integrated Security=True";
 
-        private static string defaultUpdateString = "UPDATE Contractors SET name = @name," +
+        private static string _defaultUpdateString = "UPDATE Contractors SET name = @name," +
                 " code = @code, nip = @nip, phone = @phone, email = @email " +
                 "WHERE contractor_id = @ID";
 
-        private static string defaultInsertString = "INSERT INTO Contractors VALUES " +
+        private static string _defaultInsertString = "INSERT INTO Contractors VALUES " +
             "(@code, @name, @nip, @phone, @email)";
 
-        private static string defaultDeleteString = "DELETE FROM Contractors WHERE contractor_id = @ID";
+        private static string _defaultDeleteString = "DELETE FROM Contractors WHERE contractor_id = @ID";
 
-
-        public static string DefaultConnectionString
+        public static string defaultConnectionString
         {
             get
             {
-                return defaultConnectionString;
+                return _defaultConnectionString;
             }
         }
-        public static string DefaultUpdateString
+        public static string defaultUpdateString
         {
             get
             {
-                return defaultUpdateString;
+                return _defaultUpdateString;
             }
         }
-        public static string DefaultInsertString
+        public static string defaultInsertString
         {
             get
             {
-                return defaultInsertString;
+                return _defaultInsertString;
             }
         }
-        public static string DefaultDeleteString
+        public static string defaultDeleteString
         {
             get
             {
-                return defaultDeleteString;
+                return _defaultDeleteString;
             }
         }
 
         public static void UpdateData(int ID, string name,
             string code, string nip, string phone, string email)
         {
-            SqlConnection sqlConnect = new SqlConnection(DefaultConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(defaultConnectionString);
 
-            SqlCommand cmd = new SqlCommand(DefaultUpdateString, sqlConnect);
+            SqlCommand cmd = new SqlCommand(defaultUpdateString, sqlConnect);
 
             try
             {
@@ -86,9 +85,9 @@ namespace KotrakTest
         public static void InsertData(string name,
             string code, string nip, string phone, string email)
         {
-            SqlConnection sqlConnect = new SqlConnection(DefaultConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(defaultConnectionString);
 
-            SqlCommand cmd = new SqlCommand(DefaultInsertString, sqlConnect);
+            SqlCommand cmd = new SqlCommand(defaultInsertString, sqlConnect);
 
             try
             {
@@ -115,9 +114,9 @@ namespace KotrakTest
 
         public static void DeleteRowData(int ID)
         {
-            SqlConnection sqlConnect = new SqlConnection(DefaultConnectionString);
+            SqlConnection sqlConnect = new SqlConnection(defaultConnectionString);
 
-            SqlCommand cmd = new SqlCommand(DefaultDeleteString, sqlConnect);
+            SqlCommand cmd = new SqlCommand(defaultDeleteString, sqlConnect);
 
             sqlConnect.Open();
             cmd.Parameters.AddWithValue("@ID", ID);

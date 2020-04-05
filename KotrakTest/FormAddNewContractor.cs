@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace KotrakTest
 {
-    public partial class Form3 : Form
+    public partial class FormAddNewContractor : Form
     {
-        public Form3()
+        public FormAddNewContractor()
         {
             InitializeComponent();
         }
